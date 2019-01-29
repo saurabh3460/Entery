@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags%}
+
+{% block nav_list%}
+  		<li class="nav-item"><a class="nav-link" href="/home/">Home</a></li>
+  		<li class="nav-item"><a class="nav-link" href="/singup/">SingUp</a></li>
+  		<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+  {% endblock%}
+
+{% block content%}
+	<div class="row justify-content-center" >
+		<div class="col-7 mb-0 p-0 " style="">
+			<p><h1 style="color: #6ced62;">LogIn!</h1></p>
+		</div>
+		<div class="col-7 alert alert-dark" style="background-color: #e1fcdf">
+			<form method="POST" action="/login/">
+				{%csrf_token%}
+				  <div class="form-group">
+				    <label for="Username">Username</label>
+				    <input type="text" class="form-control" id="Username" name="Username" placeholder="Username" required>
+				  </div>
+				  <div class="form-group">
+				    <label for="Password">Password</label>
+				    <input type="password" class="form-control" name="Password" id="Password" placeholder="Password" required>
+				  </div>
+				  <button type="submit" class="btn btn-outline-success" >LogIn</button>
+			</form>
+		</div>
+	</div>
+{% endblock%}

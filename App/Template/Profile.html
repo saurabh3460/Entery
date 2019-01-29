@@ -1,0 +1,44 @@
+{% extends "base.html"%}
+{% load crispy_forms_tags%}
+
+{% block nav_list%}
+  		<li class="nav-item"><a class="nav-link" href="/home/">Home</a></li>
+  		<li class="nav-item"><a class="nav-link" href="/logout/">Logout</a></li>
+  		<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+  {% endblock%}
+
+{% block content%}
+	
+	<div class="row justify-content-center mt-2">
+		
+		<dir class="col-6">
+			<form method="POST" action="/profile/">
+				{%csrf_token%}
+				  <div class="form-group">
+				    <textarea  cols="150" rows="5" class="form-control" 
+				    	id="Entry" name="Entry" required></textarea>
+				  </div>
+				  <button type="Submit" id="ent_btn" class="btn btn-outline-success">Submit your Entry</button>
+			</form>
+		</dir>
+		
+	</div>
+
+	<div class="row justify-content-center mt-5">
+		{% for e in ents%}
+		<div class="col- m-1 ">
+			<div class="list-group" >
+  				<a href="#" class="list-group-item list-group-item-action flex-column align-items-start" style="background-color: #6ced62;">
+    			<div class="d-flex w-100 justify-content-between">
+      				<h5 class="mb-1">{{e}}</h5>
+    			</div>
+    			<small>{{e.timstamp}}</small>
+  				</a>
+  			</div>
+		</div>
+		{%endfor%}
+	</div>
+
+
+	
+{% endblock%}

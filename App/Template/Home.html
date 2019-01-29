@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+	<style type="text/css">
+	html,body{
+		height: 100%;
+	}
+	#banner{
+		border-radius: 5px;
+	}
+	nav{
+		background-color: #6ced62;
+	}
+	.jumbotron{
+		background-color: transparent;
+		background-image:url("{% static "image/cover.jpg"%}"); 
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: 100%;
+		height: 100%;
+	}
+	#footer{
+		background-color: #e9ecef;
+		height: 60px;
+		width: 100%;
+		bottom: 0;
+		margin-bottom: 0; 
+		}
+	#right{
+		background-image:url("{% static "image/right.jpg"%}");
+	}
+	#left{
+		background-image:url("{% static "image/left.jpg"%}");
+	}
+	.two{
+		background-color: #00000080;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: 100%;
+	}
+	.two p{
+		font-family: Didact Gothic, cursive; 
+  		color: #e9e9e9; 
+  		font-size: 20px;
+	}
+	</style>
+    <meta charset="UTF-8">
+    <title>WebDevloper</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static "JS/bootstrap.min.css"%}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet"> 
+    <script type="text/javascript" src="{%static "JS/jquery-3.3.1.min.js" %}"></script>
+	<script type="text/javascript" src="{%static "JS/bootstrap.min.js" %}" ></script>
+
+</head>
+<body>
+
+<div class="header">
+		<nav class="navbar navbar-light navbar-expand-lg " >
+  		<a class="navbar-brand" href="#" style="font-family: 'Pacifico', cursive; 
+  			color: #1c9cd6; font-size: 30px;">
+    		<img src="{% static "image/logo.png"%}" width="40" height="40" id="banner" 
+    			 class="d-inline-block align-top" alt="brand-logo"> Entry
+  		</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" 
+  				data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+   		 	<span class="navbar-toggler-icon"></span>
+  		</button>
+
+  		<div class="collapse navbar-collapse " id="navbarContent" >
+    		<ul class="navbar-nav mr-auto">
+    			{% if User.is_authenticated %}
+    				<li class="nav-item"><a class="nav-link" href="/profile/">Profile</a></li>
+  					<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+  				{% else %}
+	  				<li class="nav-item"><a class="nav-link" href="/login/">Login</a></li>
+	  				<li class="nav-item"><a class="nav-link" href="/singup/">SingUp</a></li>
+	  				<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+	  			{%endif%}
+    		</ul>
+    	</div>
+	</nav>
+</div>
+
+<div class="container-fluid mb-0">
+	<div class="jumbotron mt-2 ">
+			 <center>
+			 	 <div style="width: 60%; background-color: #00000080; padding:5px;">
+			 	 	<center><h2 class="display-5" style="font-family: 'Didact Gothic', cursive; 
+  			color: #e9e9e9; ">Hello Django !</h2></center>
+			  <p class="lead " style="font-family: 'Didact Gothic', cursive; color: #e9e9e9; 
+			  	font-size: 20px;">
+				  	Django was developed in a fast-paced newsroom environment, it was designed to make common Web-development tasks fast and easy. Here’s an informal overview of how to write a database-driven Web app with Django.
+				  	{{User.is_authenticated}}
+			  </p>
+			  <hr class="my-4" 
+			  style=" border-top: 1px solid  #e9e9e9;">
+			  <p class="" style="font-family: 'Didact Gothic', cursive;  
+  			color: #e9e9e9; font-size: 20px;">The goal of this course is to give you enough technical specifics how to develop web applications with Django.</p>
+			 	 </div>
+			 </center>
+			  <!--
+				<p class="lead text-light">
+			    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+			  </p>
+			  -->
+			  
+		</div>
+	
+</div>
+
+<div class="container-fluid mt-1">
+	<div class="row justify-content-md-center">
+		<div class="col mr-2 two" id="right">
+			<div style="background-color: #0000004d;">
+				<p style="margin:  5px;">
+				Web development is the work involved in developing a web site for the Internet (World Wide Web) or an intranet (a private network). Web development can range from developing a simple single static page of plain text to complex web-based internet applications (web apps) electronic businesses, and social network services. A more comprehensive list of tasks to which web development commonly refers, may include web engineering, web design, web content development, client liaison, client-side/server-side scripting, web server and network security configuration, and e-commerce development. Among web professionals, "web development" usually refers to the main non-design aspects of building web sites: writing markup and coding. Most recently Web development has come to mean the creation of content management systems (CMS). These CMS can be made from scratch, proprietary or open source. In broad terms the CMS acts as middleware between the database and the user through the browser. A principle benefit of a CMS is that it allows non-technical people to make changes to their web site without having technical knowledge. 
+			</p>
+			</div>
+			
+		</div>
+		<div class="col two" id="left">
+			<div style="background-color: #00000080;">
+				<p style="margin:5px;">
+				For larger organizations and businesses, web development teams can consist of hundreds of people (web developers) and follow standard methods like Agile methodologies while developing websites. Smaller organizations may only require a single permanent or contracting developer, or secondary assignment to related job positions such as a graphic designer or information systems technician. Web development may be a collaborative effort between departments rather than the domain of a designated department. There are three kinds of web developer specialization: front-end developer, back-end developer, and full-stack developer. Front-end developers deal with the layout and visuals of a website, while back-end developers deal with the functionality of a website. Back-end developers will program in the functions of a website that will collect data. 
+			</p>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+<hr class="mb-0">
+<footer id="footer">
+	<span class="align-middle" style="width:40%;">
+		
+		<p class="text-dark ml-2">
+		Designed and built with all the love in the world by @abc.<br> Maintained by the core team at <a href="https://www.blueheartlab.com" target="blank" class="badge badge-primary">Blue Heart Lab</a>.
+	</p>
+	
+	</span>
+	
+</footer>
+
+
+
+</body>
+</html>
